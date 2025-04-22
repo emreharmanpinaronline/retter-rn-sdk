@@ -307,27 +307,8 @@ export default class Retter {
 
     // #region Firebase
     protected async initFirebase(tokenData?: RetterTokenData) {
-        const firebaseConfig = tokenData?.firebase
-        if (!firebaseConfig || this.firebase) return
-
-        this.firebase = initializeApp(
-            {
-                apiKey: firebaseConfig.apiKey,
-                authDomain: firebaseConfig.projectId + '.firebaseapp.com',
-                projectId: firebaseConfig.projectId,
-            },
-            this.clientConfig!.projectId
-        )
-
-        this.firestore = initializeFirestore(this.firebase!, {
-            experimentalForceLongPolling: true,
-        })
-        this.firebaseAuth = getAuth(this.firebase!)
-
-        await signInWithCustomToken(
-            this.firebaseAuth!,
-            firebaseConfig.customToken
-        ).catch(() => {})
+        console.log('[RetterFork] Firebase init bypassed.');
+        return;
     }
 
     protected clearFirebase() {
