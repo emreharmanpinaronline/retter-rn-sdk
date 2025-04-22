@@ -1,9 +1,7 @@
 node_modules
-dist
-bundle
+src
 test
-**/*.d.ts
-**/*.js
-**/*.js.map
+*.ts
+*.tsx
 
-!webpack.config.js
+!dist/
